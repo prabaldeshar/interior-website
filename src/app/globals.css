@@ -19,3 +19,20 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.image-wrapper {
+  width: 100%;
+  height: 350px; /* Set a fixed height for all images */
+  overflow: hidden; /* Crop overflow content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* Optional: Add a fallback background */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image is cropped to fit the container */
+}
+
