@@ -1,6 +1,7 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
 
 :root {
   --background: #ffffff;
@@ -34,5 +35,178 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures the image is cropped to fit the container */
+}
+
+.badge {
+  border-radius: 12px; /* Subtle rounding for a modern look */
+  padding: 2px 8px; /* Minimal padding */
+  font-weight: 500; /* Slightly bold text */
+  letter-spacing: 0.5px; /* Subtle spacing */
+}
+
+.custom-card {
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.services-section {
+  background-image: url('https://via.placeholder.com/300x200?text=Furniture"');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 60px 0;
+}
+
+.card {
+  background: linear-gradient(145deg, #3d4144, #0b1118);
+  border: none;
+  border-radius: 0px;
+  text-align: left;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h5 {
+  color:rgb(245, 238, 239);
+  font-size:30px;
+
+}
+
+.card p {
+  color:rgb(168, 145, 145);
+ 
+}
+
+.card .icon {
+  font-size: 3rem;
+  color: #a4b0be;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card .icon:hover {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.card a {
+  text-decoration: none;
+  color:rgb(236, 226, 227);
+  font-weight: bold;
+  border: 2px solidrgb(241, 229, 231);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card a:hover {
+  background-color:rgb(232, 223, 224);
+  color: #1a1a2e;
+}
+
+
+.carousel {
+  width: 100%; /* Makes it take the full width of the container */
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.carousel-container {
+  margin: 2rem auto;
+  max-width: 1150px;
+}
+
+.carousel {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  border-radius: 15px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+}
+
+
+.logo-rectangular {
+  width: 150px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  object-fit: cover; /* Ensures the logo maintains its aspect ratio */
+  transition: transform 0.3s ease-in-out; /* Smooth hover animation */
 }
 

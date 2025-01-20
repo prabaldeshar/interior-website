@@ -1,29 +1,21 @@
 'use client'
 
-import { useRouter } from "next/navigation";
-import Link from 'next/link'
+import Link from 'next/link';
 
-const Card = ({project}) => {
-    const router = useRouter();
-
-    return (
-        <div className="col-md-4" key={project.id}>
-              <div className="card h-100 shadow-sm">
-                <img
-                  src={project.image}
-                  className="image-wrapper"
-                  alt={project.title}
-                />
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{project.title}</h5>
-                  <p className="card-text flex-grow-1">{project.description}</p>
-                  <div className="mt-auto">
-                    <Link href={`/projects/${project.id}`}>View Details</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-    );
+const Card = ({ project }) => {
+  return (
+    <div className="col-md-4" key={project.id}>
+      <Link href={`/projects/${project.id}`} passHref>
+        <div className="card custom-card h-100">
+          <div className="card-overlay"></div>
+          <img src={project.image} className="card-img" alt="Card Image" />
+          <div className="card-content">
+            <h3 className="card-title">{project.title}</h3>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
 };
 
 export default Card;

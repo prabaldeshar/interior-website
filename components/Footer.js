@@ -1,133 +1,105 @@
+'use client';
+
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 const Footer = () => {
-    return (
-        <>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-                    rel="stylesheet"
-                />
-    <footer className="bg-body-tertiary text-center mt-4">
-
-        <div className="container p-4">
-            <section className="mb-4">
-            
-            </section>
-
-            <section className="">
-            <form action="">
-                <div className="row d-flex justify-content-center">
-                <div className="col-auto">
-                    <p className="pt-2">
-                    <strong>Sign up for our newsletter</strong>
-                    </p>
-                </div>
-
-                <div className="col-md-5 col-12">
-                    <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="email" id="form5Example24" className="form-control" />
-                    <label className="form-label" htmlFor="form5Example24">Email address</label>
-                    </div>
-                </div>
-
-                <div className="col-auto">
-                    <button data-mdb-ripple-init type="submit" className="btn btn-outline mb-4">
-                    Subscribe
-                    </button>
-                </div>
-                </div>
-            </form>
-            </section>
-
-            <section className="mb-4">
+  return (
+    <footer className="bg-dark text-light py-5" id="contact">
+      <div className="container">
+        <div className="row">
+          {/* Logo and About */}
+          <div className="col-md-4 mb-4">
+            <h5>Your Company</h5>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
-                harum corrupti dicta, aliquam sequi voluptate quas.
+              Providing innovative solutions to transform your space.
             </p>
-            </section>
+          </div>
 
-            <section className="">
-            <div className="row">
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Links</h5>
+          {/* Contact Info */}
+          <div className="col-md-4 mb-4">
+            <h5>Contact Us</h5>
+            <ul className="list-unstyled">
+              <li>
+                <FontAwesomeIcon icon={faEnvelope} className="me-2" />
+                <a href="mailto:info@yourcompany.com" className="text-light">
+                  info@yourcompany.com
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faPhone} className="me-2" />
+                <a href="tel:+1234567890" className="text-light">
+                  +123 456 7890
+                </a>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" />
+                Kathmandu, Nepal
+              </li>
+            </ul>
+          </div>
 
-                <ul className="list-unstyled mb-0">
-                    <li>
-                    <a className="text-body" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 4</a>
-                    </li>
-                </ul>
-                </div>
-
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Links</h5>
-
-                <ul className="list-unstyled mb-0">
-                    <li>
-                    <a className="text-body" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 4</a>
-                    </li>
-                </ul>
-                </div>
-
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Links</h5>
-
-                <ul className="list-unstyled mb-0">
-                    <li>
-                    <a className="text-body" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 4</a>
-                    </li>
-                </ul>
-                </div>
-
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Links</h5>
-
-                <ul className="list-unstyled mb-0">
-                    <li>
-                    <a className="text-body" href="#!">Link 1</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 2</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 3</a>
-                    </li>
-                    <li>
-                    <a className="text-body" href="#!">Link 4</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-            </section>
+          {/* Navigation Links */}
+          <div className="col-md-4 mb-4">
+            <h5>Quick Links</h5>
+            <ul className="list-unstyled">
+              <li><Link href="/" className="text-light">Home</Link></li>
+              <li><Link href="#about" className="text-light">About Us</Link></li>
+              <li><Link href="#services" className="text-light">Services</Link></li>
+              <li><Link href="#contact" className="text-light">Contact</Link></li>
+            </ul>
+          </div>
         </div>
 
-        </footer>
-    </>
-    )
-}
+        <hr className="bg-light" />
+
+        {/* Social Media Links */}
+        <div className="row">
+          <div className="col text-center">
+            <h5>Follow Us</h5>
+            <div className="d-flex justify-content-center mt-3">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                className="text-light me-4"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
+              </a>
+
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                className="text-light me-4"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faInstagram} size="2x" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                className="text-light"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr className="bg-light" />
+
+        {/* Copyright */}
+        <div className="row">
+          <div className="col text-center">
+            <p className="mb-0">&copy; {new Date().getFullYear()} Your Company. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
