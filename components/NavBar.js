@@ -1,41 +1,43 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
+
+const NavLink = ({ href, children }) => {
+  return (
+    <li className="nav-item">
+      <Link href={href} className="nav-link px-3 py-2 text-gray-600 hover:bg-light hover:text-primary rounded-md fw-semibold">
+        {children}
+      </Link>
+    </li>
+  )
+}
 
 const NavBar = () => {
   return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      />
-      <nav className="navbar navbar-expand-lg navbar-light bg-light m-4">
-        <a className="navbar-brand" href="#">Logo</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+      <div className="container">
+        {/* Logo */}
+        <a className="navbar-brand fw-bold text-primary" href="#">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="me-2"
+            style={{ height: "30px" }}
+          />
+        </a>
 
+
+        {/* Navbar Links */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <div className="ms-auto fs-4">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">About Us<span className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Services</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">Projects</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">Contact Us</a>
-              </li>
-            </ul>
-
-          </div>
-
+          <ul className="navbar-nav ms-auto align-items-center">
+            <NavLink href="#about">About Us</NavLink>
+            <NavLink href="#services">Services</NavLink>
+            <NavLink href="#projects">Projects</NavLink>
+            <NavLink href="#contact">Contact Us</NavLink>
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
-}
+};
 
 export default NavBar;

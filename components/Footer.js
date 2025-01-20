@@ -1,9 +1,6 @@
 const Footer = () => {
     return (
         <>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-                    rel="stylesheet"
-                />
     <footer className="bg-body-tertiary text-center mt-4">
 
         <div className="container p-4">
