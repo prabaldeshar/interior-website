@@ -26,7 +26,6 @@ const NavBar = () => {
         </a>
 
 
-        {/* Navbar Links */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto align-items-center">
             <NavLink href="#about">About Us</NavLink>

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import CarouselImage from './CarouselImage';
@@ -6,68 +6,86 @@ import CarouselImage from './CarouselImage';
 const Carousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const slides = [
-        { src: '../../design-1.png', alt: 'First slide' },
+        { src: '../../design-1.png', alt: 'First slide'},
         { src: '../../design-2.jpg', alt: 'Second slide' },
         { src: '../../design-3.jpg', alt: 'Third slide' },
         { src: '../../design-4.jpg', alt: 'Fourth slide' },
     ];
 
     const handlePrev = () => {
-        setActiveIndex((prevIndex) => {
-            if (prevIndex == 0) {
-                return slides.length - 1;
-            } else {
-                return prevIndex - 1;
-            }
-        }
-    )};
+        setActiveIndex((prevIndex) =>
+            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+        );
+    };
 
     const handleNext = () => {
-        setActiveIndex((prevIndex) => {
-            if (prevIndex == slides.length -1) {
-                return 0;
-            } else {
-                return prevIndex + 1;
-            }
-        }
-    )};
-
+        setActiveIndex((prevIndex) =>
+            prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        );
+    };
 
     return (
-        <>
-        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-indicators">
-                {
-                    slides.map((slide, index) => (
-                        <li 
+        <div className="carousel-container">
+            <div
+                id="carouselExampleIndicators"
+                className="carousel slide shadow-lg rounded overflow-hidden"
+                data-bs-ride="carousel"
+            >
+                {/* Carousel Indicators */}
+                <div className="carousel-indicators">
+                    {slides.map((_, index) => (
+                        <button
                             key={index}
-                            data-bs-target="#carouselExampleIndicators" 
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
                             data-bs-slide-to={index}
-                            className={index === activeIndex ? "active" : ""}
-                        ></li>
-                    ))
-                }
+                            className={index === activeIndex ? 'active' : ''}
+                            aria-current={index === activeIndex ? 'true' : undefined}
+                            aria-label={`Slide ${index + 1}`}
+                            onClick={() => setActiveIndex(index)}
+                        ></button>
+                    ))}
+                </div>
 
-            </div>
-            <div className="carousel-inner">
-                {
-                    slides.map((slide, index) => (
-                        <CarouselImage key={index} isActive={index === activeIndex} src={slide.src}/>
-                    ))
-                }
-            </div>
+                {/* Carousel Images */}
+                <div className="carousel-inner">
+                    {slides.map((slide, index) => (
+                        <CarouselImage
+                            key={index}
+                            isActive={index === activeIndex}
+                            src={slide.src}
+                            alt={slide.alt}
+                        />
+                    ))}
+                </div>
 
-             
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev" onClick={handlePrev}>
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next" onClick={handleNext}>
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-            </a>
+                {/* Controls */}
+                <button
+                    className="carousel-control-prev"
+                    type="button"
+                    data-bs-slide="prev"
+                    onClick={handlePrev}
+                >
+                    <span
+                        className="carousel-control-prev-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                    className="carousel-control-next"
+                    type="button"
+                    data-bs-slide="next"
+                    onClick={handleNext}
+                >
+                    <span
+                        className="carousel-control-next-icon"
+                        aria-hidden="true"
+                    ></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
-        </>
     );
 };
 
