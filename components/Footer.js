@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-md-4 mb-4">
             <h5>Your Company</h5>
             <p>
-              We are a tech-forward company providing innovative solutions to transform your business.
+              Providing innovative solutions to transform your space.
             </p>
           </div>
 
