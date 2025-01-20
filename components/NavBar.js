@@ -27,7 +27,7 @@ const NavLink = ({ href, children }) => {
       <a 
         href={href} 
         onClick={handleClick}
-        className="nav-link px-3 py-2 text-gray-600 hover:bg-light hover:text-primary rounded-md fw-semibold"
+        className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
       >
         {children}
       </a>
@@ -37,7 +37,7 @@ const NavLink = ({ href, children }) => {
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
       <div className="container">
         {/* Logo */}
         <Link href="/" className="navbar-brand fw-bold text-primary">
