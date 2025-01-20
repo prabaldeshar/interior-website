@@ -88,3 +88,69 @@ body {
   margin: 0;
   line-height: 1.5;
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.services-section {
+  background-image: url('https://via.placeholder.com/300x200?text=Furniture"');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 60px 0;
+}
+
+.card {
+  background: linear-gradient(145deg, #3d4144, #0b1118);
+  border: none;
+  border-radius: 0px;
+  text-align: left;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h5 {
+  color:rgb(245, 238, 239);
+  font-size:30px;
+
+}
+
+.card p {
+  color:rgb(168, 145, 145);
+ 
+}
+
+.card .icon {
+  font-size: 3rem;
+  color: #a4b0be;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card .icon:hover {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.card a {
+  text-decoration: none;
+  color:rgb(236, 226, 227);
+  font-weight: bold;
+  border: 2px solidrgb(241, 229, 231);
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card a:hover {
+  background-color:rgb(232, 223, 224);
+  color: #1a1a2e;
+}

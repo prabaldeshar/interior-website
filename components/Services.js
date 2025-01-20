@@ -22,39 +22,47 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-5 bg-light">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h3 className="text-uppercase text-secondary">Our Services</h3>
-          <h2 className="fw-bold">Transforming Spaces with Excellence</h2>
-        </div>
-        <div className="row g-4">
-          {services.map((service, index) => (
-            <div key={index} className="col-12 col-sm-6 col-lg-3">
-              <div
-                className="card bg-dark text-light border-0 h-100 shadow service-card"
-                style={{
-                  backgroundImage: `url(${service.bgImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                  <h4 className="card-title fw-bold text-uppercase">
-                    {service.title}
-                  </h4>
-                  <a
-                    href="#"
-                    className="btn btn-link text-white text-decoration-none mt-3"
-                  >
-                    Read More
-                  </a>
+    <section className="services-section">
+        <div className="container">
+          <h1 className='text-center mb-4'>Our Services</h1>
+          <p className="text-center mb-5">
+            Transforming spaces into timeless reflections of your style with innovative, functional, and elegant interior design solutions.
+            </p>
+            <div className="row g-4">
+                <div className="col-lg-3 col-md-6">
+                    <div className="card h-100 p-4">
+                        <div className="icon"><i className="fas fa-drafting-compass"></i></div>
+                        <h5>Architecture</h5>
+                        <p>Designing enduring, innovative spaces that harmonize function and aesthetics with a focus on sustainability and client collaboration.</p>
+                        
+                    </div>
                 </div>
-              </div>
+                <div className="col-lg-3 col-md-6">
+                    <div className="card h-100 p-4">
+                        <div className="icon"><i className="fas fa-couch"></i></div>
+                        <h5>Interior Design</h5>
+                        <p>Crafting captivating interiors that blend beauty and functionality, tailored to individual styles for spaces that evoke comfort and elegance.</p>
+                        
+                    </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                    <div className="card h-100 p-4">
+                        <div className="icon"><i className="fas fa-hard-hat"></i></div>
+                        <h5>Construction & Supervision</h5>
+                        <p>Elevating spaces with curated or custom-designed furniture and decor elements, transforming environments into harmonious and captivating settings.</p>
+                        
+                    </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                    <div className="card h-100 p-4">
+                        <div className="icon"><i className="fas fa-chair"></i></div>
+                        <h5>Furniture & Decor</h5>
+                        <p>Elevate spaces with personalized touches. Our services offer curated selections or custom-designed furniture and decor, enhancing ambiance and functionality.</p>
+                        
+                    </div>
+                </div>
             </div>
-          ))}
         </div>
-      </div>
     </section>
   );
 };
