@@ -37,7 +37,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div
-        className="position-absolute top-100 start-0 translate-middle-y w-100 bg-warning"
+        className="position-absolute top-100 start-0 translate-middle-y w-100 bg-light"
         style={{ height: "5px" }}
       ></div>
     </section>
