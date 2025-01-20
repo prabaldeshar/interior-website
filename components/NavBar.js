@@ -20,7 +20,7 @@ const NavBar = () => {
           <img
             src="/logo.png"
             alt="Logo"
-            className="me-2"
+            className="logo-rectangular me-2"
             style={{ height: "30px" }}
           />
         </a>
