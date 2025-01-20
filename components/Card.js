@@ -10,7 +10,7 @@ const Card = ({ project }) => {
           <div className="card-overlay"></div>
           <img src={project.image} className="card-img" alt="Card Image" />
           <div className="card-content">
-            <h5 className="card-title">{project.title}</h5>
+            <h3 className="card-title">{project.title}</h3>
           </div>
         </div>
       </Link>
