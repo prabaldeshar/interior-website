@@ -25,7 +25,7 @@ const Services = () => {
     <section className="services-section" id="services">
         <div className="container">
           <h1 className='text-center mb-4'>Our Services</h1>
-          <p className="text-center mb-5">
+          <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
             Transforming spaces into timeless reflections of your style with innovative, functional, and elegant interior design solutions.
             </p>
             <div className="row g-4">

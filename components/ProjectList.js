@@ -7,7 +7,7 @@ const ProjectList = async () => {
         <section className="py-5 bg-light" id="projects">
         <div className="container">
             <h2 className="text-center mb-4">Our Projects</h2>
-            <p className="text-center mb-5">
+            <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
             Explore some of the stunning projects we've completed for our clients.
             </p>
             <div className="row g-4">
