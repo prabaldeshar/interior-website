@@ -22,10 +22,10 @@ const HeroSection = () => {
           </div>
           <div className="col-lg-6 order-lg-1 position-relative z-index-1">
             <div className="bg-dark bg-opacity-50 p-4 p-lg-5 rounded-3 shadow-lg">
-              <h1 className="display-3 fw-bold text-light  mb-3">Design Your Dream</h1>
+              <h1 className="display-3 fw-bold text-light  mb-3">Your Vision, Our Craftsmanship</h1>
               <p className="lead mb-4">
-                Crafting spaces that inspire, function, and reflect your unique style. Our expert designers bring your
-                vision to life.
+              At Ideal Interior Nepal, we transform your design dreams into breathtaking realities. 
+              Our team specializes in creating timeless interiors that blend beauty, comfort, and innovation.
               </p>
               <div className="d-flex flex-wrap gap-2">
                 <span className="badge bg-transparent border text-light fs-6">Residential</span>
