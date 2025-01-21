@@ -42,10 +42,14 @@ const NavBar = () => {
         {/* Logo */}
         <Link href="/" className="navbar-brand fw-bold text-primary">
           <img
-            src="/logo.png"
+            src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/logos/logo-top-removebg-preview.png"
             alt="Logo"
-            className="logo-rectangular me-2"
-            style={{ height: "30px" }}
+            className="logo-rectangular me-2 img-fluid"
+            style={{
+              width: "150px", // Adjust the width for a rectangular appearance
+              height: "90px", // Set a smaller height to fit within the navbar
+              objectFit: "fill" // Stretches the image to fit the dimensions
+            }}
           />
         </Link>
 

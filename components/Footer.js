@@ -12,7 +12,16 @@ const Footer = () => {
         <div className="row">
           {/* Logo and About */}
           <div className="col-md-4 mb-4">
-            <h5>Your Company</h5>
+          <img
+            src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/logos/logo-with-text-removebg-preview.png"
+            alt="Logo"
+            className="logo-rectangular me-2 img-fluid"
+            style={{
+              width: "250px", // Adjust the width for a rectangular appearance
+              height: "150px", // Set a smaller height to fit within the navbar
+              objectFit: "fill" // Stretches the image to fit the dimensions
+            }}
+          />
             <p>
               Providing innovative solutions to transform your space.
             </p>
