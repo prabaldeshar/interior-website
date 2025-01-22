@@ -205,8 +205,8 @@ body {
 
 .logo-rectangular {
   width: 150px; /* Adjust the width as needed */
-  height: 60px; /* Adjust the height as needed */
-  object-fit: cover; /* Ensures the logo maintains its aspect ratio */
+  height: 40px; /* Adjust the height as needed */
+  object-fit: fill; /* Ensures the logo maintains its aspect ratio */
   transition: transform 0.3s ease-in-out; /* Smooth hover animation */
 }
 
