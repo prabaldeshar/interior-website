@@ -29,7 +29,6 @@ const NavLink = ({ href, children }) => {
         href={href}
         onClick={handleClick}
         className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
-        style={{ fontSize: "1.4rem" }}
       >
         {children}
       </a>
