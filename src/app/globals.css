@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 :root {
   --background: #ffffff;
@@ -209,4 +210,48 @@ body {
   object-fit: fill; /* Ensures the logo maintains its aspect ratio */
   transition: transform 0.3s ease-in-out; /* Smooth hover animation */
 }
+
+.services-image {
+  height: auto;  /* Makes both images fill their parent container */
+  max-height: 500px; /* Adjust this to set a uniform height for all images */
+  object-fit: cover; /* Ensures images maintain aspect ratio and are not distorted */
+  width: 90%; /* Ensures images are responsive */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out
+}
+
+.services-image img:hover {
+  transform: scale(1.05);
+}
+
+.services-image:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a shadow for emphasis */
+}
+
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  height: 40vh; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
 
