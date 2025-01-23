@@ -5,33 +5,15 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 const NavLink = ({ href, children }) => {
-  const router = useRouter()
-
-  const handleClick = (e) => {
-    e.preventDefault()
-
-    // Check if we're on the homepage
-    if (window.location.pathname === "/") {
-      // If on homepage, smooth scroll to the section
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-      }
-    } else {
-      // If not on homepage, navigate to homepage + anchor
-      router.push(`/${href}`)
-    }
-  }
-
   return (
     <li className="nav-item">
-      <a
+      <Link
         href={href}
-        onClick={handleClick}
+        // onClick={handleClick}
         className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
       >
         {children}
-      </a>
+      </Link>
     </li>
   )
 }
@@ -68,10 +50,10 @@ const NavBar = () => {
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav align-items-center">
-            <NavLink href="#about">About Us</NavLink>
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#projects">Projects</NavLink>
-            <NavLink href="#contact">Contact Us</NavLink>
+            <NavLink href="/">About Us</NavLink>
+            <NavLink href="/services">Services</NavLink>
+            <NavLink href="/projects">Projects</NavLink>
+            <NavLink href="/">Contact Us</NavLink>
           </ul>
         </div>
       </div>
