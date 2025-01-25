@@ -11,6 +11,7 @@ const NavLink = ({ href, children }) => {
         href={href}
         // onClick={handleClick}
         className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
+        style={{ fontFamily: "serif",}}
       >
         {children}
       </Link>
@@ -50,7 +51,7 @@ const NavBar = () => {
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav align-items-center">
-            <NavLink href="/">About Us</NavLink>
+            <NavLink href="/">Home</NavLink>
             <NavLink href="/services">Services</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/">Contact Us</NavLink>
