@@ -30,8 +30,8 @@ const NavBar = () => {
             alt="Logo"
             className="logo-rectangular img-fluid"
             style={{
-              width: "150px", // Adjust the width for a rectangular appearance
-              height: "90px", // Set a smaller height to fit within the navbar
+              width: "140px", // Adjust the width for a rectangular appearance
+              height: "70px", // Set a smaller height to fit within the navbar
               objectFit: "fill", // Stretches the image to fit the dimensions
             }}
           />
@@ -54,7 +54,7 @@ const NavBar = () => {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/services">Services</NavLink>
             <NavLink href="/projects">Projects</NavLink>
-            <NavLink href="/">Contact Us</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
           </ul>
         </div>
       </div>
