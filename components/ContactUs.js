@@ -4,9 +4,9 @@ const ContactUs = () => {
             <div className="container bg-white text-center shadow border-0">
                 {/* Title and Description */}
                 <div className="text-center mb-5">
-                    <h1 className="mb-3 mt-2 p-3 fw-bold" style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", color: "#0a0a0a"}}>Get in Touch</h1>
+                    <h1 className="mb-3 mt-2 p-3 fw-bold" style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", color: "#0a0a0a"}}>Connect with Us for Your Dream Design</h1>
                     <p className="text-muted" style={{ fontSize: "1.2rem" }}>
-                        Have questions or need assistance with your interior design project? We're here to help! Let us guide you with personalized solutions tailored to your needs.
+                        Got questions or need help with your interior design project? We're here to assist you with tailored solutions every step of the way!
                     </p>
                 </div>
 

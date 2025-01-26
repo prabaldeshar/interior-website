@@ -303,3 +303,50 @@ body {
   }
 }
 
+.hero-overlay h2 {
+  font-size: 2rem; /* Default font size */
+  color: #fff;
+}
+
+.hero-overlay h2 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Responsive style for medium screens (tablet, small devices) */
+@media (max-width: 768px) {
+  .hero-overlay h2 {
+    font-size: 1.6rem; /* Smaller font size on medium screens */
+  }
+
+  .hero-overlay h2 div {
+    flex-direction: column; /* Stack phone and email vertically */
+    gap: 10px; /* Reduce space between items */
+  }
+
+  .hero-overlay h2 div span {
+    font-size: 1.4rem; /* Adjust text size for small devices */
+  }
+
+  .hero-overlay h2 div a {
+    font-size: 1.4rem; /* Adjust email font size */
+  }
+}
+
+/* Responsive style for small screens (mobile) */
+@media (max-width: 480px) {
+  .hero-overlay h2 {
+    font-size: 1.4rem; /* Even smaller font size for mobile */
+  }
+
+  .hero-overlay h2 div {
+    gap: 8px; /* Reduce space even more */
+  }
+
+  .hero-overlay h2 div span,
+  .hero-overlay h2 div a {
+    font-size: 1.2rem; /* Adjust font size even more */
+  }
+}
