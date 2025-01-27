@@ -9,7 +9,7 @@ const Card = ({ project }) => {
         <div className="card custom-card h-100">
           <div className="card-overlay"></div>
           <div className="card-img-container" style={{ height: "350px", position: "relative" }}>
-          <img src={project.image} className="card-img" alt="Card Image" />
+          <img src={project.cover_image} className="card-img" alt="Card Image" />
           </div>
           <div className="card-content">
             <h3 className="card-title">{project.title}</h3>
