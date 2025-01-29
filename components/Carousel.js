@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CarouselImage from "./CarouselImage";
 
-const Carousel = () => {
+const Carousel = ({images, project}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = [
     { src: "../../design-1.png", alt: "First slide" },
@@ -14,13 +14,13 @@ const Carousel = () => {
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -36,7 +36,7 @@ const Carousel = () => {
           >
             {/* Carousel Indicators */}
             <div className="carousel-indicators">
-              {slides.map((_, index) => (
+              {images.map((_, index) => (
                 <button
                   key={index}
                   type="button"
@@ -52,12 +52,13 @@ const Carousel = () => {
 
             {/* Carousel Images */}
             <div className="carousel-inner">
-              {slides.map((slide, index) => (
+              {images.map((image, index) => (
                 <CarouselImage
-                  key={index}
+                  key={image.id}
                   isActive={index === activeIndex}
-                  src={slide.src}
-                  alt={slide.alt}
+                  src={image.image}
+                  project={project}
+                //   alt={slide.alt}
                 />
               ))}
             </div>
@@ -95,7 +96,7 @@ const Carousel = () => {
           <div className="h-100 d-flex flex-column justify-content-center px-lg-4">
             <h2 className="display-5 text-dark mb-3">Project Overview</h2>
             <p className="text-secondary fs-8 mb-3 lead">
-              This project showcases a collection of interior design concepts that reflect creativity, functionality, and modern aesthetics.
+              {project.description}
             </p>
           </div>
         </div>
