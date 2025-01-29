@@ -5,7 +5,7 @@ import getProjects from "../../../../helpers/loadJson";
 import Carousel from "../../../../components/Carousel";
 import NavBar from "../../../../components/NavBar";
 import Footer from "../../../../components/Footer";
-
+import { BASE_URL } from '../../../../constants/constants';
 
 const Details = async ({ params }) => {
   const params_data = await params;
@@ -41,7 +41,7 @@ const Details = async ({ params }) => {
   const project_id = params_data.id
   try {
 
-    const response = await fetch(`http://localhost:8001/project/images/${project_id}`)
+    const response = await fetch(`${BASE_URL}/project/images/${project_id}`)
     if (!response.ok) {
       throw new Error('Failed to fetch images')
     }

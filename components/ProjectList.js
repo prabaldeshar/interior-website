@@ -1,5 +1,5 @@
 import Card from "./Card";
-// import getProjects from "../helpers/loadJson";
+import { BASE_URL } from "../constants/constants";
 
 const SAMPLE_PROJECTS = [
         {
@@ -37,7 +37,9 @@ const SAMPLE_PROJECTS = [
 const ProjectList = async () => {
     let projects = []
     try {
-        const response = await fetch('http://localhost:8001/project/list/')
+        const projects_url = `${BASE_URL}/project/list/`
+        console.log("GET", projects_url)
+        const response = await fetch(projects_url)
         if (!response.ok) {
             throw new Error("Failed to fetch projects")
         }
