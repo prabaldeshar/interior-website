@@ -34,7 +34,7 @@ const HomeCarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' 
                         textShadow: '2px 2px 5px rgba(0, 0, 0, 0.7)', // Add some text shadow for better visibility
                     }}
                 >
-                    Beautiful Design
+                    Ideal Interior
                 </h1>
                 <p
                     style={{
