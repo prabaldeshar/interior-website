@@ -35,19 +35,19 @@ const SAMPLE_PROJECTS = [
     ]
     
 const ProjectList = async () => {
-    let projects = []
+    let projects = [];
     try {
-        const projects_url = `${BASE_URL}/project/list/`
-        console.log("GET", projects_url)
-        const response = await fetch(projects_url)
+        const projects_url = `${BASE_URL}/project/list/`;
+        console.log("GET", projects_url);
+        const response = await fetch(projects_url, { cache: "no-store" });
         if (!response.ok) {
-            throw new Error("Failed to fetch projects")
+            throw new Error("Failed to fetch projects");
         }
-        const data = await response.json()
-        projects = data.projects
+        const data = await response.json();
+        projects = data.projects;
     } catch (error) {
-        console.error("Failed to fetch projects", error)
-        projects = SAMPLE_PROJECTS
+        console.error("Failed to fetch projects", error);
+        projects = SAMPLE_PROJECTS;
     }
 
     
