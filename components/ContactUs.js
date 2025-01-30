@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { BASE_URL } from "../constants/constants";
+
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -46,8 +48,11 @@ const ContactUs = () => {
     if (Object.keys(formErrors).length === 0) {
       setIsSubmitting(true)
       try {
-        // Replace this URL with your actual API endpoint when ready
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        console.log("Sending request to API new")
+        console.log(JSON.stringify(formData))
+        const post_url = `${BASE_URL}/contact/user/`
+        console.log("post_url", post_url)
+        const response = await fetch(post_url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -61,6 +66,7 @@ const ContactUs = () => {
           throw new Error("Form submission failed")
         }
       } catch (error) {
+        console.log("Error", error)
         setSubmitStatus("error")
       } finally {
         setIsSubmitting(false)
