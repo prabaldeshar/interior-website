@@ -1,4 +1,4 @@
-const CarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' }) => {
+const CarouselImage = ({ project, isActive, src = '../../design-1.png', alt = 'Test', }) => {
     return (
         <div className={`carousel-item ${isActive ? 'active' : ''}`}>
             <img
@@ -13,8 +13,8 @@ const CarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' }) =
                 }}
             />
             <div className="carousel-caption d-none d-md-block">
-                <h5>Beautiful Design</h5>
-                <p>Elevate your experience with modern aesthetics.</p>
+                <h5>{project.title}</h5>
+                <p>{project.location}</p>
             </div>
         </div>
     );

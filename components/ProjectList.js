@@ -1,18 +1,64 @@
 import Card from "./Card";
-import getProjects from "../helpers/loadJson";
+import { BASE_URL } from "../constants/constants";
 
+const SAMPLE_PROJECTS = [
+        {
+            "id": "project_1",
+            "title": "Modern Living Room",
+            "description": "A sleek and modern living room design with a focus on minimalism.",
+            "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.16.18+PM.jpeg"
+        },
+        {
+            "id": "project_2",
+            "title": "Elegant Office Space",
+            "description": "An office space that combines functionality with elegance.",
+            "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.29.16+PM+(2).jpeg"
+        },
+        {
+            "id": "project_3",
+            "title": "Cozy Bedroom Design",
+            "description": "A warm and inviting bedroom for ultimate relaxation.",
+            "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg"
+        },
+         {
+            "id": "project_4",
+            "title": "Cozy Bedroom Design",
+            "description": "A warm and inviting bedroom for ultimate relaxation.",
+            "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg"
+        },
+        {
+            "id": "project_5",
+            "title": "Elegant Office Space",
+            "description": "An office space that combines functionality with elegance.",
+            "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.29.16+PM+(2).jpeg"
+        }
+    ]
+    
 const ProjectList = async () => {
-    const projects = await getProjects();
+    let projects = [];
+    try {
+        const projects_url = `${BASE_URL}/project/list/`;
+        console.log("GET", projects_url);
+        const response = await fetch(projects_url, { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json();
+        projects = data.projects;
+    } catch (error) {
+        console.error("Failed to fetch projects", error);
+        projects = SAMPLE_PROJECTS;
+    }
+
+    
+    // const projects = await getProjects();
     return (
         <section className="py-5 bg-light" id="projects">
         <div className="container">
-            <h2 className="text-center mb-4">Our Projects</h2>
             <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
             Explore some of the stunning projects we've completed for our clients.
             </p>
-            <div className="row g-4">
-            
-            
+            <div className="row row-cols-1 row-cols-md-3 g-4">
             {projects.map((project) => (
                 <Card key={project.id} project={project}/>
             ))}

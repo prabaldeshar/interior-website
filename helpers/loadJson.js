@@ -1,9 +1,9 @@
 import path from "path";
-import fs from "fs";
+// import fs from "fs";
 
 const { promisify } = require("util");
 
-const readFile = promisify(fs.readFile);
+// const readFile = promisify(fs.readFile);
 
 async function getProjects() {
     const data = require('../projects.json');
