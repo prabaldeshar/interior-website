@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import CarouselImage from "./CarouselImage";
 
 const Carousel = ({images, project}) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+
   const slides = [
     { src: "../../design-1.png", alt: "First slide" },
     { src: "../../design-2.jpg", alt: "Second slide" },
@@ -12,17 +15,44 @@ const Carousel = ({images, project}) => {
     { src: "../../design-4.jpg", alt: "Fourth slide" },
   ];
 
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
 
-  const handleNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  const handlePrev = useCallback(() => {
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))
+  }, [])
+
+  const handleNext = useCallback(() => {
+    setActiveIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1))
+  }, [])
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext()
+    }, 5000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [handleNext])
+
+  // Touch event handlers
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 150) {
+      // Swipe left
+      handleNext()
+    }
+
+    if (touchStart - touchEnd < -150) {
+      // Swipe right
+      handlePrev()
+    }
+  }
 
   return (
     <div className="container my-5">
