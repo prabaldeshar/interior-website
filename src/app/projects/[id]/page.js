@@ -7,6 +7,8 @@ import NavBar from "../../../../components/NavBar";
 import Footer from "../../../../components/Footer";
 import { BASE_URL } from '../../../../constants/constants';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const Details = async ({ params }) => {
   const params_data = await params;
 
