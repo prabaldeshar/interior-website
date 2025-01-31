@@ -1,5 +1,9 @@
+import https from 'https';
+
 import Card from "./Card";
 import { BASE_URL } from "../constants/constants";
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const SAMPLE_PROJECTS = [
         {
@@ -33,13 +37,17 @@ const SAMPLE_PROJECTS = [
             "cover_image": "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.29.16+PM+(2).jpeg"
         }
     ]
-    
+
 const ProjectList = async () => {
-    let projects = [];
+    const agent = new https.Agent({
+        rejectUnauthorized: false // !!! Only for testing/trusted environments !!!
+      });
+
+    let projects = []
     try {
-        const projects_url = `${BASE_URL}/project/list/`;
-        console.log("GET", projects_url);
-        const response = await fetch(projects_url, { cache: "no-store" });
+        const projects_url = `${BASE_URL}/project/list/`
+        console.log("GET", projects_url)
+        const response = await fetch(projects_url, agent)
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
         }
