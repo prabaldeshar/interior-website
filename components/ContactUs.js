@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { BASE_URL } from "../constants/constants";
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
