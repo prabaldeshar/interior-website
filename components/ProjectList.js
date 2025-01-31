@@ -47,7 +47,7 @@ const ProjectList = async () => {
     try {
         const projects_url = `${BASE_URL}/project/list/`
         console.log("GET", projects_url)
-        const response = await fetch(projects_url, agent)
+        const response = await fetch(projects_url, { cache: "no-store" })
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
         }
