@@ -22,7 +22,7 @@ const AboutUsCard = ({title, description}) => {
             }}
           ></div>
         </div>
-        <p className="text-secondary">{description}</p>
+        <p className="text-secondary" style={{ fontSize: "1.2rem" }}>{description}</p>
       </div>
   )
 }
@@ -36,7 +36,7 @@ export default function AboutUs() {
             <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily: "serif",}}>
               Bringing Spaces to Life
             </h2>
-            <p className="text-secondary mb-5">
+            <p className="text-secondary mb-5" style={{ fontSize: "1.2rem" }}>
             With a passion for interior design, we specialize in creating beautiful, functional spaces tailored to your unique needs. 
             From concept to completion, our designs bring life to homes and businesses alike.
             </p>
