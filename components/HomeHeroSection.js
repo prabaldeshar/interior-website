@@ -2,32 +2,34 @@
 
 import { useState, useEffect, useCallback, TouchEvent } from "react"
 import HomeCarouselImage from "./HomeCaroselImage"
+import { BASE_URL } from "../constants/constants"
 
-const slides = [
+const DEFAULT_SLIDES = [
   {
-    src: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg",
-    alt: "First slide",
+    image: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg",
+    title: "First slide",
   },
-  { src: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/construction_2.jpeg", alt: "Second slide" },
-  { src: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/rendering.jpeg", alt: "Third slide" },
+  { image: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/construction_2.jpeg", title: "Second slide" },
+  { image: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/rendering.jpeg", title: "Third slide" },
   {
-    src: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg",
-    alt: "Fourth slide",
+    image: "https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM+(1).jpeg",
+    title: "Fourth slide",
   },
 ]
 
 export default function HomeHeroSection() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [slides, setSlides] = useState([])
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
 
   const handlePrev = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1))
-  }, [])
+  }, [slides])
 
   const handleNext = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1))
-  }, [])
+  }, [slides])
 
   // Auto-slide effect
   useEffect(() => {
@@ -37,6 +39,26 @@ export default function HomeHeroSection() {
 
     return () => clearInterval(interval)
   }, [handleNext])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+
+        const response = await fetch(`${BASE_URL}/homepage-slides/`)
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json = await response.json()
+        setSlides(json.image_details)
+        
+      } catch (error) {
+        setSlides(DEFAULT_SLIDES)
+      }
+    };
+
+    fetchData();
+  }, []);
 
   // Touch event handlers
   const handleTouchStart = (e) => {
@@ -91,7 +113,7 @@ export default function HomeHeroSection() {
                 {/* Carousel Images */}
                 <div className="carousel-inner">
                   {slides.map((slide, index) => (
-                    <HomeCarouselImage key={index} isActive={index === activeIndex} src={slide.src} alt={slide.alt} />
+                    <HomeCarouselImage key={index} isActive={index === activeIndex} src={slide.image} alt={slide.title} />
                   ))}
                 </div>
 

@@ -5,6 +5,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
+const QuickLinks = () => {
+  return (
+    <div className="col-md-4">
+      <h5 className="fw-bold text-white">Quick Links</h5>
+      <ul className="list-unstyled">
+        {[
+          { href: "/", label: "Home" },
+          { href: "/services", label: "Services" },
+          { href: "/projects", label: "Projects" },
+          { href: "/contact", label: "Contact Us" },
+        ].map((link, index) => (
+          <li key={index} className="mb-2">
+            <Link
+              href={link.href}
+              className="text-light fw-semibold text-decoration-none d-block"
+              style={{ transition: "color 0.3s" }}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="bg-dark text-light py-5" id="contact">
@@ -48,15 +74,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="col-md-4 mb-4">
-            <h5>Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><Link href="/" className="text-light">Home</Link></li>
-              <li><Link href="/services" className="text-light">Services</Link></li>
-              <li><Link href="/projects" className="text-light">Projects</Link></li>
-              <li><Link href="/contact" className="text-light">Contact Us</Link></li>
-            </ul>
-          </div>
+          <QuickLinks />
         </div>
 
         <hr className="bg-light" />

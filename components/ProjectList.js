@@ -1,9 +1,5 @@
-import https from 'https';
-
 import Card from "./Card";
 import { BASE_URL } from "../constants/constants";
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const SAMPLE_PROJECTS = [
         {
@@ -39,10 +35,6 @@ const SAMPLE_PROJECTS = [
     ]
 
 const ProjectList = async () => {
-    const agent = new https.Agent({
-        rejectUnauthorized: false // !!! Only for testing/trusted environments !!!
-      });
-
     let projects = []
     try {
         const projects_url = `${BASE_URL}/project/list/`
