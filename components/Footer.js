@@ -75,15 +75,6 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <QuickLinks />
-          {/* <div className="col-md-4 mb-4">
-            <h5>Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><Link href="/" className="text-light text-decoration-none fw-semibold text-decoration-none d-block py-1">Home</Link></li>
-              <li><Link href="/services" className="text-light text-decoration-none">Services</Link></li>
-              <li><Link href="/projects" className="text-light text-decoration-none">Projects</Link></li>
-              <li><Link href="/contact" className="text-light text-decoration-none">Contact Us</Link></li>
-            </ul>
-          </div> */}
         </div>
 
         <hr className="bg-light" />
