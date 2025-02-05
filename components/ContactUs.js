@@ -91,11 +91,11 @@ const ContactUs = () => {
         <div className="text-center mb-5">
           <h1
             className="mb-3 mt-2 p-3 fw-bold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", color: "#0a0a0a" }}
+            style={{ fontFamily:  "'Poppins', sans-serif", fontSize: "2rem", color: "#0a0a0a" }}
           >
             Connect with Us for Your Dream Design
           </h1>
-          <p className="text-muted" style={{ fontSize: "1.2rem" }}>
+          <p className="text-muted" style={{ fontSize: "1.2rem", fontFamily:  "'Poppins', sans-serif", }}>
             Got questions or need help with your interior design project? We're here to assist you with tailored
             solutions every step of the way!
           </p>

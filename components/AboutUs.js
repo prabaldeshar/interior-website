@@ -8,7 +8,7 @@ const AboutUsCard = ({title, description}) => {
   return (
     <div className="col-sm-6">
         <div className="position-relative mb-4">
-          <h3 className="fw-bold mb-2" style={{ color: "#0a0a0a", fontFamily: "'Playfair ', serif", fontSize: "1.4rem" }}>
+          <h3 className="fw-bold mb-2" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif", fontSize: "1.4rem" }}>
           {title}
           </h3>
           <div
@@ -19,6 +19,7 @@ const AboutUsCard = ({title, description}) => {
               width: "60px",
               height: "3px",
               backgroundColor: "#ffd700",
+              fontFamily:  "'Poppins', sans-serif",
             }}
           ></div>
         </div>
@@ -32,11 +33,11 @@ export default function AboutUs() {
       <div className="row align-items-center">
         <div className="col-lg-6">
           <div className="pe-lg-5">
-            <p className="text-secondary mb-2 display-6" style={{ fontFamily: "serif",}}>About us</p>
-            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily: "serif",}}>
+            <p className="text-secondary mb-2 display-6" style={{ fontFamily:  "'Poppins', sans-serif",}}>About us</p>
+            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif",}}>
               Bringing Spaces to Life
             </h2>
-            <p className="text-secondary mb-5" style={{ fontSize: "1.2rem" }}>
+            <p className="text-secondary mb-5" style={{ fontSize: "1.2rem", fontFamily:  "'Poppins', sans-serif", }}>
             With a passion for interior design, we specialize in creating beautiful, functional spaces tailored to your unique needs. 
             From concept to completion, our designs bring life to homes and businesses alike.
             </p>

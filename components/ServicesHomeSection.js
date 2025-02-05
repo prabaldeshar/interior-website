@@ -33,7 +33,7 @@ export default function ServicesSection() {
         <div className="row align-items-center">
           {/* Left Column (Content) */}
           <div className="col-lg-4">
-            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily: "serif",}}>
+            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif",}}>
               The best of our services
             </h2>
             {/* <p className="text-muted mb-4">
