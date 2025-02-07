@@ -30,8 +30,8 @@ const NavBar = () => {
             alt="Logo"
             className="logo-rectangular img-fluid"
             style={{
-              width: "120px", // Adjust the width for a rectangular appearance
-              height: "55px", // Set a smaller height to fit within the navbar
+              width: "125px", // Adjust the width for a rectangular appearance
+              height: "57px", // Set a smaller height to fit within the navbar
               objectFit: "fill", // Stretches the image to fit the dimensions
             }}
           />
