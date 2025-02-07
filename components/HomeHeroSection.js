@@ -42,6 +42,11 @@ export default function HomeHeroSection() {
 
   useEffect(() => {
     const fetchData = async () => {
+      const cachedSlides = localStorage.getItem("homepageSlides")
+      if (cachedSlides) {
+        setSlides(JSON.parse(cachedSlides));
+        return;
+      }
       try {
 
         const response = await fetch(`${BASE_URL}/homepage-slides/`)
@@ -51,6 +56,7 @@ export default function HomeHeroSection() {
         }
         const json = await response.json()
         setSlides(json.image_details)
+        localStorage.setItem("homepageSlides", JSON.stringify(json.image_details))
         
       } catch (error) {
         setSlides(DEFAULT_SLIDES)
