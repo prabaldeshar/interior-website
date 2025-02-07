@@ -44,27 +44,25 @@ export default function HomeHeroSection() {
     const fetchData = async () => {
       const cachedSlides = localStorage.getItem("homepageSlides")
       if (cachedSlides) {
-        setSlides(JSON.parse(cachedSlides));
-        return;
+        setSlides(JSON.parse(cachedSlides))
+        return
       }
       try {
-
         const response = await fetch(`${BASE_URL}/homepage-slides/`)
-  
+
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status}`)
         }
         const json = await response.json()
         setSlides(json.image_details)
         localStorage.setItem("homepageSlides", JSON.stringify(json.image_details))
-        
       } catch (error) {
         setSlides(DEFAULT_SLIDES)
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   // Touch event handlers
   const handleTouchStart = (e) => {
@@ -95,7 +93,7 @@ export default function HomeHeroSection() {
             <div className="col-lg-12">
               <div
                 id="carouselExampleIndicators"
-                className="carousel slide shadow-lg rounded overflow-hidden"
+                className="carousel slide carousel-fade shadow-lg rounded overflow-hidden"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -119,7 +117,12 @@ export default function HomeHeroSection() {
                 {/* Carousel Images */}
                 <div className="carousel-inner">
                   {slides.map((slide, index) => (
-                    <HomeCarouselImage key={index} isActive={index === activeIndex} src={slide.image} alt={slide.title} />
+                    <HomeCarouselImage
+                      key={index}
+                      isActive={index === activeIndex}
+                      src={slide.image}
+                      alt={slide.title}
+                    />
                   ))}
                 </div>
 
