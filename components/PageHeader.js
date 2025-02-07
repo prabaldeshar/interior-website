@@ -6,7 +6,7 @@ const PageHeader = ({title, image, subHeading }) => {
     return (
         <section
           className="hero-section position-relative text-center"
-          style={{ backgroundImage: `url(${image})`, fontFamily: "serif"}}>
+          style={{ backgroundImage: `url(${image})`, fontFamily:  "'Poppins', sans-serif",}}>
 
           <div className="hero-overlay">
             <div>

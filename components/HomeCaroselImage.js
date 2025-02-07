@@ -29,7 +29,7 @@ const HomeCarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' 
                     className="display-5"
                     style={{
                         fontSize: '4.5rem',
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily:  "'Poppins', sans-serif",
                         fontWeight: '600',
                         textShadow: '2px 2px 5px rgba(0, 0, 0, 0.7)', // Add some text shadow for better visibility
                     }}
