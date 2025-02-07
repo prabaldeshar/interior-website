@@ -43,7 +43,7 @@ export default function ProjectSection() {
 
             {/* Text content */}
             <div className="text-center text-lg-start">
-                <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily: "serif",}}>
+                <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a",  fontFamily:  "'Poppins', sans-serif",}}>
                 See our interior spaces come to life.
               </h2>
               <Link href="/projects">          

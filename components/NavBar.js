@@ -11,7 +11,7 @@ const NavLink = ({ href, children }) => {
         href={href}
         // onClick={handleClick}
         className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
-        style={{ fontFamily: "serif",}}
+        style={{ fontFamily:  "'Poppins', sans-serif",}}
       >
         {children}
       </Link>
@@ -30,8 +30,8 @@ const NavBar = () => {
             alt="Logo"
             className="logo-rectangular img-fluid"
             style={{
-              width: "140px", // Adjust the width for a rectangular appearance
-              height: "70px", // Set a smaller height to fit within the navbar
+              width: "125px", // Adjust the width for a rectangular appearance
+              height: "57px", // Set a smaller height to fit within the navbar
               objectFit: "fill", // Stretches the image to fit the dimensions
             }}
           />
