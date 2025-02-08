@@ -369,3 +369,59 @@ body {
     font-size: 1.2rem; /* Adjust font size even more */
   }
 }
+
+
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-nav {
+  gap: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: rgba(33, 37, 41, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+  }
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+body {
+  padding-top: var(--navbar-height, 0px);
+}
+
+/* Add these new rules */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 76px; /* Adjust this value to match your navbar height */
+}
+
+@media (max-width: 991px) {
+  body::before {
+    height: 70px; /* Adjust this value for mobile view if needed */
+  }
+}

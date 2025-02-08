@@ -1,17 +1,21 @@
 "use client"
 
-import React from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 
 const NavLink = ({ href, children }) => {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
   return (
     <li className="nav-item">
       <Link
         href={href}
-        // onClick={handleClick}
-        className="nav-link px-3 py-2 text-light hover:bg-light hover:text-primary rounded-md fw-semibold"
-        style={{ fontFamily:  "'Poppins', sans-serif",}}
+        className={`nav-link px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
+          isActive ? "fw-bold active text-light font-bold" : "text-light hover:bg-light/10 hover:text-primary"
+        }`}
+        style={{ fontFamily: "'Poppins', sans-serif",  fontSize: "1rem" }}
       >
         {children}
       </Link>
@@ -20,19 +24,25 @@ const NavLink = ({ href, children }) => {
 }
 
 const NavBar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm border-bottom border-secondary">
+    <nav className="navbar navbar-expand-lg fixed-top bg-dark shadow-md nav-fixed">
       <div className="container-fluid">
         {/* Logo */}
-        <Link href="/" className="navbar-brand fw-bold text-primary">
+        <Link href="/" className="navbar-brand">
           <img
             src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/logos/logo-top-removebg-preview.png"
             alt="Logo"
             className="logo-rectangular img-fluid"
             style={{
-              width: "125px", // Adjust the width for a rectangular appearance
-              height: "57px", // Set a smaller height to fit within the navbar
-              objectFit: "fill", // Stretches the image to fit the dimensions
+              width: "125px",
+              height: "57px",
+              objectFit: "contain",
             }}
           />
         </Link>
@@ -40,16 +50,29 @@ const NavBar = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          onClick={toggleMobileMenu}
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            role="img"
+            focusable="false"
+          >
+            <title>Menu</title>
+            <path
+              stroke="white"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              strokeWidth="2"
+              d="M4 7h22M4 15h22M4 23h22"
+            />
+          </svg>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <div className={`collapse navbar-collapse justify-content-end ${isMobileMenuOpen ? "show" : ""}`}>
           <ul className="navbar-nav align-items-center">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/services">Services</NavLink>
@@ -63,3 +86,4 @@ const NavBar = () => {
 }
 
 export default NavBar
+
