@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from "../constants/constants"
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ContactUs = () => {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState("")
+  const [recaptchaValue, setRecaptchaValue] = useState("")
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,6 +23,11 @@ const ContactUs = () => {
       ...prevState,
       [name]: value,
     }))
+  }
+
+  const handleRecaptchaChange = (value) => {
+    console.log(value)
+    setRecaptchaValue(value)
   }
 
   const validateForm = () => {
@@ -38,6 +45,7 @@ const ContactUs = () => {
     }
     if (!formData.subject.trim()) errors.subject = "Subject is required"
     if (!formData.message.trim()) errors.message = "Message is required"
+    if (!recaptchaValue) errors.recaptcha = "Please complete the reCAPTCHA"
     return errors
   }
 
@@ -48,7 +56,7 @@ const ContactUs = () => {
       setIsSubmitting(true)
       try {
         console.log("Sending request to API new")
-        console.log(JSON.stringify(formData))
+        console.log(JSON.stringify({ ...formData, recaptchaValue }))
         const post_url = `${BASE_URL}/contact/user/`
         console.log("post_url", post_url)
         const response = await fetch(post_url, {
@@ -56,11 +64,13 @@ const ContactUs = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({ ...formData, recaptchaValue }),
         })
         if (response.ok) {
           setSubmitStatus("success")
           setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
+          setRecaptchaValue("")
+          window.grecaptcha.reset()
         } else {
           throw new Error("Form submission failed")
         }
@@ -86,16 +96,17 @@ const ContactUs = () => {
 
   return (
     <section className="py-5 bg-light">
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <div className="container bg-white text-center shadow border-0">
         {/* Title and Description */}
         <div className="text-center mb-5">
           <h1
             className="mb-3 mt-2 p-3 fw-bold"
-            style={{ fontFamily:  "'Poppins', sans-serif", fontSize: "2rem", color: "#0a0a0a" }}
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: "2rem", color: "#0a0a0a" }}
           >
             Connect with Us for Your Dream Design
           </h1>
-          <p className="text-muted" style={{ fontSize: "1.2rem", fontFamily:  "'Poppins', sans-serif", }}>
+          <p className="text-muted" style={{ fontSize: "1.2rem", fontFamily: "'Poppins', sans-serif" }}>
             Got questions or need help with your interior design project? We're here to assist you with tailored
             solutions every step of the way!
           </p>
@@ -177,7 +188,15 @@ const ContactUs = () => {
                 ></textarea>
                 {errors.message && <div className="invalid-feedback">{errors.message}</div>}
               </div>
-              <button type="submit" className="btn btn-dark w-100" disabled={isSubmitting}>
+              <div className="mb-3">
+              <ReCAPTCHA
+                sitekey="6Lf759AqAAAAAIBzMeNvAYid1OrheP-j7G0jsbLF"
+                onChange={handleRecaptchaChange}
+              />
+
+                {errors.recaptcha && <div className="invalid-feedback d-block">{errors.recaptcha}</div>}
+              </div>
+              <button type="submit" className="btn btn-dark w-100" disabled={isSubmitting || !recaptchaValue}>
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
@@ -201,3 +220,4 @@ const ContactUs = () => {
 }
 
 export default ContactUs
+
