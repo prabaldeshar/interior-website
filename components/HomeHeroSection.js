@@ -61,13 +61,15 @@ export default function HomeHeroSection() {
                 <div className="carousel-indicators">
                   {slides.map((_, index) => (
                     <button
-                      key={index}
-                      type="button"
-                      className={index === activeIndex ? "active" : ""}
-                      aria-current={index === activeIndex ? "true" : undefined}
-                      aria-label={`Slide ${index + 1}`}
-                      onClick={() => setActiveIndex(index)}
-                    ></button>
+                    key={index}
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to={index}
+                    className={index === activeIndex ? "active" : ""}
+                    aria-current={index === activeIndex ? "true" : undefined}
+                    aria-label={`Slide ${index + 1}`}
+                    onClick={() => setActiveIndex(index)}
+                  ></button>
                   ))}
                 </div>
 
