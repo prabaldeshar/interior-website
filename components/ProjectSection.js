@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function ProjectSection() {
   return (
-    <div className="container pb-2">
+    <div className="container pb-2 bg-white">
       <div className="row g-4 align-items-center">
         {/* Left column with main image */}
         <div className="col-12 col-lg-6">

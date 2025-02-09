@@ -64,7 +64,7 @@ export default function ServicesSection() {
             <div className="services-list">
               {services.map((service, index) => (
                 <div key={index} className="service-item mb-1 p-2 rounded-3 transition-all shadow-sm">
-                  <p className="mb-3 lead" style={{ color: "#1b4d3e" }}>
+                  <p className="mb-3 lead" style={{ color: "#000" }}>
                     {service.title}
                   </p>
                 </div>

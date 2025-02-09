@@ -7,7 +7,7 @@ const Projects = async ({ params }) => {
 const params_data = await params;
 
   return (
-    <div className="mb-3 mr-2 ml-2">
+    <div className="mb-3 mr-2 ml-2 bg-white">
       <NavBar />
       <ProjectsPage />
       <ProjectList />
