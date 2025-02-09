@@ -55,7 +55,7 @@ const Carousel = ({images, project}) => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 bg-white">
       <div className="row align-items-center g-4">
         {/* Image and Carousel Section */}
         <div className="col-lg-9">
