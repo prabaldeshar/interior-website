@@ -1,5 +1,8 @@
+"use client"
+
 import Card from "./Card";
 import { BASE_URL } from "../constants/constants";
+import { useQuery } from "@tanstack/react-query";
 
 const SAMPLE_PROJECTS = [
         {
@@ -34,36 +37,49 @@ const SAMPLE_PROJECTS = [
         }
     ]
 
-const ProjectList = async () => {
-    let projects = []
-    try {
-        const projects_url = `${BASE_URL}/project/list/`
-        console.log("GET", projects_url)
-        const response = await fetch(projects_url, { cache: "no-store" })
-        if (!response.ok) {
-            throw new Error("Failed to fetch projects");
-        }
-        const data = await response.json();
-        projects = data.projects;
-    } catch (error) {
-        console.error("Failed to fetch projects", error);
-        projects = SAMPLE_PROJECTS;
-    }
+const fetchProjects = async () => {
+    const response = await fetch(`${BASE_URL}/project/list/`);
+    if (!response.ok) throw new Error("Failed to fetch slides");
+    const json = await response.json();
+    return json.projects;
+}
 
-    
-    // const projects = await getProjects();
+const ProjectList = () => {
+    const { data: projects, isLoading, isError } = useQuery({
+        queryKey: ["projectList"],
+        queryFn: fetchProjects,
+        staleTime: 10 * 60 * 1000, // 10 min before data is considered stale
+        cacheTime: 30 * 60 * 1000, // 30 min before cache is deleted
+        refetchInterval: 15 * 60 * 1000, // Refetch data every 15 min in the background
+      });
+
+    const projectData = isError ? SAMPLE_PROJECTS : projects;
+
     return (
         <section className="py-5 bg-light" id="projects">
-        <div className="container">
-            <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
-            Explore some of the stunning projects we've completed for our clients.
-            </p>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-            {projects.map((project) => (
-                <Card key={project.id} project={project}/>
-            ))}
+            <div className="container">
+                <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
+                    Explore some of the stunning projects we've completed for our clients.
+                </p>
+                <div className="row row-cols-1 row-cols-md-3 g-4">
+                    {isLoading
+                        ? // Show dark placeholder cards while loading
+                          [...Array(3)].map((_, index) => (
+                              <div key={index} className="col">
+                                  <div
+                                      className="card shadow-sm placeholder-card"
+                                      style={{
+                                          height: "350px",
+                                          backgroundColor: "#1a1a1a", // Dark background
+                                          opacity: 0.2, // Barely visible
+                                          borderRadius: "10px",
+                                      }}
+                                  ></div>
+                              </div>
+                          ))
+                        : projectData.map((project) => <Card key={project.id} project={project} />)}
+                </div>
             </div>
-        </div>
         </section>
     );
 };

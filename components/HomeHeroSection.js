@@ -45,7 +45,6 @@ export default function HomeHeroSection() {
     return () => clearInterval(interval)
   }, [handleNext])
 
-  if (isLoading) return <p>Loading slides...</p>;
   if (isError) return <p>Error loading slides. Showing default images.</p>;
 
   return (
