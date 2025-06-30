@@ -1,10 +1,18 @@
 "use client"
 
+import { useQuery } from "@tanstack/react-query";
+import { BASE_URL } from "../constants/constants";
+
 // import Image from "next/image"
+
+const fetchAboutUs = async () => {
+  const res = await fetch(`${BASE_URL}/about-us/`);
+  if (!res.ok) throw new Error("Failed to fetch About Us data");
+  return res.json();
+};
 
 
 const AboutUsCard = ({title, description}) => {
-
   return (
     <div className="col-sm-6">
         <div className="position-relative mb-4">
@@ -28,6 +36,19 @@ const AboutUsCard = ({title, description}) => {
   )
 }
 export default function AboutUs() {
+    const {
+    data: about,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["aboutUs"],
+    queryFn: fetchAboutUs,
+    staleTime: 10 * 60 * 1000,
+    retry: false,
+  });
+
+  if (isLoading) return <p className="text-center py-5">Loading...</p>;
+  if (isError || !about) return <p className="text-center text-danger py-5">Failed to load content</p>;
   return (
     <section className="container py-5">
       <div className="row align-items-center">
@@ -35,18 +56,16 @@ export default function AboutUs() {
           <div className="pe-lg-5">
             <p className="text-secondary mb-2 display-6" style={{ fontFamily:  "'Poppins', sans-serif",}}>About us</p>
             <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif",}}>
-              Bringing Spaces to Life
+              {about.heading}
             </h2>
             <p className="text-secondary mb-5" style={{ fontSize: "1.2rem", fontFamily:  "'Poppins', sans-serif", }}>
-            With a passion for interior design, we specialize in creating beautiful, functional spaces tailored to your unique needs. 
-            From concept to completion, our designs bring life to homes and businesses alike.
+            {about.description}
             </p>
 
             <div className="row g-4">            
-              <AboutUsCard title="Design Expertise" description={"Timeless interiors, thoughtfully crafted."} />
-              <AboutUsCard title="Creative Solutions" description={"Innovative ideas for every space."} />
-              <AboutUsCard title="Collaborative Approach" description={"Your vision, perfectly realized."} />
-              <AboutUsCard title="Attention to Detail" description={"Precision in every element."} />
+              {about.points?.map((point, index) => (
+                <AboutUsCard key={index} title={point.title} description={point.description} />
+              ))}
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import '../styles/globals.css';
+import { ContactInfoProvider } from '../../context/ContactInfoContext';
 
 
 function MyApp({ Component, pageProps }) {
@@ -13,7 +14,10 @@ function MyApp({ Component, pageProps }) {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <ContactInfoProvider>
+
+        <Component {...pageProps} />
+      </ContactInfoProvider>
     </QueryClientProvider>
   );
 }
