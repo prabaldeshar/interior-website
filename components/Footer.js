@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { useAppData } from '../context/ContactInfoContext';
 
 const QuickLinks = () => {
   return (
@@ -32,6 +33,10 @@ const QuickLinks = () => {
 };
 
 const Footer = () => {
+  const { contactInfo, isLoading, isError } = useAppData();
+  if (isLoading) return null; // or a spinner/loading message
+  if (isError || !contactInfo) return <p>Contact info not available.</p>;
+  
   return (
     <footer className="bg-dark text-light py-5" id="contact">
       <div className="container">
@@ -56,19 +61,19 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
-                <a href="mailto:info@yourcompany.com" className="text-light">
-                  info@yourcompany.com
+                <a href={`mailto:${contactInfo.email}`} className="text-light">
+                  {contactInfo.email}
                 </a>
               </li>
               <li>
                 <FontAwesomeIcon icon={faPhone} className="me-2" />
                 <a href="tel:+1234567890" className="text-light">
-                  +123 456 7890
+                  {contactInfo.phone}
                 </a>
               </li>
               <li>
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" />
-                Kathmandu, Nepal
+                {contactInfo.address}
               </li>
             </ul>
           </div>
@@ -83,32 +88,25 @@ const Footer = () => {
         <div className="row">
           <div className="col text-center">
             <h5>Follow Us</h5>
-            <div className="d-flex justify-content-center mt-3">
-              <a
-                href="https://facebook.com"
+            <div className="d-flex justify-content-center mt-3 col text-center">
+              {contactInfo.facebook && <a
+                href={contactInfo.facebook}
                 target="_blank"
                 className="text-light me-4"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
-              </a>
+              </a>}
 
-              <a
-                href="https://instagram.com"
+              {contactInfo.instagram && <a
+                href={contactInfo.instagram}
                 target="_blank"
                 className="text-light me-4"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                className="text-light"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
-              </a>
+              </a>}
+             
             </div>
           </div>
         </div>

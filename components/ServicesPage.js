@@ -6,13 +6,18 @@ import ServiceSection from "./ServiceSection";
 import PageHeader from "./PageHeader";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../constants/constants";
+import { useAppData } from "../context/ContactInfoContext";
 
 const fetchServices = async () => {
   const response = await fetch(`${BASE_URL}/services/`);
-  if (!response.ok) throw new Error("Failed to fetch slides");
+  if (!response.ok) throw new Error("Failed to fetch services");
   const json = await response.json();
-  console.log({json})
-  return json.services || DEFAULT_SERVICES;
+
+  if (!json.services || !Array.isArray(json.services)) {
+    throw new Error("Invalid response from server");
+  }
+
+  return json.services;
 };
 
 const DEFAULT_SERVICES = [
@@ -94,20 +99,16 @@ const DEFAULT_SERVICES = [
   ];
 
 export default function ServicesPage() {
- const { data: services = DEFAULT_SERVICES, isLoading, isError } = useQuery({
-    queryKey: ["homepageSlides"],
-    queryFn: fetchServices,
-    staleTime: 10 * 60 * 1000, // 10 min before data is considered stale
-    cacheTime: 30 * 60 * 1000, // 30 min before cache is deleted
-    refetchInterval: 15 * 60 * 1000, // Refetch data every 15 min in the background
-  });
+ const { services: allServices, isLoading: isAppDataLoading, isError  } = useAppData();
 
   
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
-  
 
+  if (isAppDataLoading) return <p>Loading services...</p>;
+  if (isError) return <p>Failed to load services</p>;
+  if (!allServices.length) return <p>No services found</p>;
   
 
   return (
@@ -117,7 +118,7 @@ export default function ServicesPage() {
         title="Our Services"
         image="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM.jpeg"
       />
-      {services.map((section, index) => (
+      {allServices.map((section, index) => (
         <ServiceSection key={index} {...section} />
       ))}
     </main>

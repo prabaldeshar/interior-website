@@ -27,24 +27,26 @@ export default function HomeHeroSection() {
     refetchInterval: 15 * 60 * 1000, // Refetch data every 15 min in the background
   });
 
-  const [activeIndex, setActiveIndex] = useState(0);
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  
   const handlePrev = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   }, [slides]);
-
+  
   const handleNext = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
   }, [slides]);
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext()
     }, 5000) // Change slide every 5 seconds
-
+    
     return () => clearInterval(interval)
   }, [handleNext])
-
+  
+  if (isLoading) return <p className="text-center py-5">Loading slides...</p>;
   if (isError) return <p>Error loading slides. Showing default images.</p>;
 
   return (

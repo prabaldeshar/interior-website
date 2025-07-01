@@ -4,7 +4,7 @@ import { createContext, useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../constants/constants";
 
-const ContactInfoContext = createContext();
+const AppDataContext  = createContext();
 
 const fetchContactInfo = async () => {
   const res = await fetch(`${BASE_URL}/contact-info/`);
@@ -12,24 +12,73 @@ const fetchContactInfo = async () => {
   return res.json();
 };
 
-export const ContactInfoProvider = ({ children }) => {
-  const {
+const fetchHomepageImages = async () => {
+  const res = await fetch(`${BASE_URL}/homepage-images/`);
+  if (!res.ok) throw new Error("Failed to fetch homepage images");
+  return res.json();
+};
+
+const fetchServices = async () => {
+  const response = await fetch(`${BASE_URL}/services/`);
+  if (!response.ok) throw new Error("Failed to fetch services");
+  const json = await response.json();
+
+  if (!json.services || !Array.isArray(json.services)) {
+    throw new Error("Invalid response from server");
+  }
+
+  console.log(json.services);
+  return json.services;
+};
+
+export const AppDataProvider  = ({ children }) => {
+   const {
     data: contactInfo,
-    isLoading,
-    isError,
-    error,
+    isLoading: loadingContact,
+    isError: errorContact,
+    error: contactError,
   } = useQuery({
-    data: contactInfo,
     queryKey: ["contactInfo"],
     queryFn: fetchContactInfo,
-    staleTime: 10 * 60 * 1000, // cache valid for 10 mins
+    staleTime: 10 * 60 * 1000,
   });
 
+  const {
+    data: homepageImages,
+    isLoading: loadingImages,
+    isError: errorImages,
+    error: homepageError,
+  } = useQuery({
+    queryKey: ["homepageImages"],
+    queryFn: fetchHomepageImages,
+    staleTime: 10 * 60 * 1000,
+  });
+
+  const { data: services, isLoading: isServicesLoading, isError: isServicesError } = useQuery({
+      queryKey: ["services"],
+      queryFn: fetchServices,
+      staleTime: 10 * 60 * 1000, // 10 min before data is considered stale
+      cacheTime: 30 * 60 * 1000, // 30 min before cache is deleted
+      refetchInterval: 15 * 60 * 1000, // Refetch data every 15 min in the background
+    });
+
   return (
-    <ContactInfoContext.Provider value={{ contactInfo, isLoading, isError, error }}>
+    <AppDataContext.Provider
+      value={{
+        contactInfo,
+        homepageImages,
+        services,
+        isLoading: loadingContact || loadingImages || isServicesLoading,
+        isError: errorContact || errorImages || isServicesError,
+        errors: {
+          contact: contactError,
+          homepage: homepageError,
+        },
+      }}
+    >
       {children}
-    </ContactInfoContext.Provider>
+    </AppDataContext.Provider>
   );
 };
 
-export const useContactInfo = () => useContext(ContactInfoContext);
+export const useAppData  = () => useContext(AppDataContext);

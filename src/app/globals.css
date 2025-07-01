@@ -455,3 +455,20 @@ body::before {
       left: 100%;
   }
 }
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #ede7e7;
+  font-size: 0.99rem;
+}
+
+.location-icon {
+  flex-shrink: 0;
+}
+
+.location-text {
+  line-height: 1.2;
+}

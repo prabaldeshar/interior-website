@@ -1,8 +1,11 @@
 "use client"
 
 import Link from "next/link"
+import { useAppData } from "../context/ContactInfoContext";
 
 export default function ProjectSection() {
+  const { homepageImages, isLoading: isAppDataLoading } = useAppData();
+  if (isAppDataLoading) return <p className="text-center py-5">Loading...</p>;
   return (
     <div className="container pb-2 bg-white">
       <div className="row g-4 align-items-center">
@@ -11,8 +14,8 @@ export default function ProjectSection() {
           <div className="position-relative">
             <div className="ratio ratio-1x1">
               <img
-                src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.17+PM.jpeg"
-                alt="Interior design showcase"
+                src={homepageImages.projects[0].image}
+                alt={homepageImages.projects[0].title}
                 className="img-fluid object-fit-cover w-100 h-100"
                 style={{ borderRadius: "0 200px 200px 0" }}
               />
@@ -27,15 +30,15 @@ export default function ProjectSection() {
             <div className="row g-4 mb-5">
               <div className="col-6">
                 <img
-                  src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM.jpeg"
-                  alt="Interior with pendant lamp"
+                  src={homepageImages.projects[1].image}
+                  alt={homepageImages.projects[1].title}
                   className="img-fluid rounded shadow-sm"
                 />
               </div>
               <div className="col-6">
                 <img
-                  src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/construction_2.jpeg"
-                  alt="Modern seating area"
+                  src={homepageImages.projects[2].image}
+                  alt={homepageImages.projects[2].title}
                   className="img-fluid rounded shadow-sm"
                 />
               </div>

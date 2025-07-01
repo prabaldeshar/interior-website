@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../constants/constants";
+import { useAppData } from "../context/ContactInfoContext";
 
 // import Image from "next/image"
 
@@ -47,7 +48,9 @@ export default function AboutUs() {
     retry: false,
   });
 
-  if (isLoading) return <p className="text-center py-5">Loading...</p>;
+  const { homepageImages, isLoading: isAppDataLoading } = useAppData();
+  
+  if (isLoading || isAppDataLoading) return <p className="text-center py-5">Loading...</p>;
   if (isError || !about) return <p className="text-center text-danger py-5">Failed to load content</p>;
   return (
     <section className="container py-5">
@@ -73,8 +76,8 @@ export default function AboutUs() {
         <div className="col-lg-6 mt-5 mt-lg-0">
           <div className="position-relative rounded-4 overflow-hidden">
             <img
-              src="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/services/rendering.jpeg"
-              alt="Team collaborating in a modern office setting"
+              src={homepageImages.about_us[0].image}
+              alt={homepageImages.about_us[0].title}
               width={800}
               height={600}
               className="img-fluid rounded-4"
