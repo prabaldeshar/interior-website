@@ -57,11 +57,11 @@ export default function AboutUs() {
       <div className="row align-items-center">
         <div className="col-lg-6">
           <div className="pe-lg-5">
-            <p className="text-secondary mb-2 display-6" style={{ fontFamily:  "'Poppins', sans-serif",}}>About us</p>
-            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif",}}>
+            <p className="text-secondary mb-2 display-6">About us</p>
+            <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a"}}>
               {about.heading}
             </h2>
-            <p className="text-secondary mb-5" style={{ fontSize: "1.2rem", fontFamily:  "'Poppins', sans-serif", }}>
+            <p className="text-secondary mb-5" style={{ fontSize: "1.2rem"}}>
             {about.description}
             </p>
 

@@ -12,8 +12,8 @@ export default function ServiceSection({ heading, description, image, reverse })
       </div>
       <div className="col-lg-6 p-5">
         <div className="max-w-xl mx-auto">
-          <h2 className="display-5 mb-4 text-dark"  style={{ fontFamily:  "'Poppins', sans-serif"}}>{heading}</h2>
-          <p className="lead mb-4" style={{ fontFamily:  "'Poppins', sans-serif" , color: "#6b6b6b"}}>{description}</p>
+          <h2 className="display-5 mb-4 text-dark">{heading}</h2>
+          <p className="lead mb-4" style={{ color: "#6b6b6b"}}>{description}</p>
 
         </div>
       </div>

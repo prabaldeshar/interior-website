@@ -58,7 +58,7 @@ const ProjectList = () => {
     return (
         <section className="py-5 bg-light" id="projects">
             <div className="container">
-                <p className="text-center mb-5" style={{ fontSize: "1.3rem" }}>
+                <p className="text-center mb-5">
                     Explore some of the stunning projects we've completed for our clients.
                 </p>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
