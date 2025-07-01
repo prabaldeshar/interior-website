@@ -74,12 +74,10 @@ export default function AboutUs() {
         </div>
 
         <div className="col-lg-6 mt-5 mt-lg-0">
-          <div className="position-relative rounded-4 overflow-hidden">
+          <div className="position-relative rounded-4 overflow-hidden about-us-image-container">
             <img
               src={homepageImages.about_us[0].image}
               alt={homepageImages.about_us[0].title}
-              width={800}
-              height={600}
               className="img-fluid rounded-4"
             />
           </div>
