@@ -29,7 +29,6 @@ const HomeCarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' 
                     className="display-5"
                     style={{
                         fontSize: '4.5rem',
-                        fontFamily:  "'Poppins', sans-serif",
                         fontWeight: '600',
                         textShadow: '2px 2px 5px rgba(0, 0, 0, 0.7)', // Add some text shadow for better visibility
                     }}
@@ -39,7 +38,6 @@ const HomeCarouselImage = ({ isActive, src = '../../design-1.png', alt = 'Test' 
                 <p
                     style={{
                         fontSize: '1.7rem',
-                        fontFamily:  "'Poppins', sans-serif",
                         fontWeight: '500',
                         marginTop: '1rem',
                         textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7)', // Add shadow for better contrast

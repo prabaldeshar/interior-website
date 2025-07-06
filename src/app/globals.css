@@ -23,20 +23,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.image-wrapper {
-  width: 100%;
-  height: 350px; /* Set a fixed height for all images */
-  overflow: hidden; /* Crop overflow content */
+.about-us-image-container {
+  height: 400px; /* Set a fixed height */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa; /* Optional: Add a fallback background */
 }
 
-.image-wrapper img {
+.about-us-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image is cropped to fit the container */
+  object-fit: cover; /* Ensure the image covers the container */
 }
 
 .badge {
@@ -64,6 +61,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-img-container {
+  border-radius: 10px;
 }
 
 .card-overlay {
@@ -93,7 +95,7 @@ body {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background-color: #1a1a2e;
   color: #ffffff;
 }
@@ -232,11 +234,11 @@ body {
 }
 
 .services-image {
-  height: auto;  /* Makes both images fill their parent container */
-  max-height: 500px; /* Adjust this to set a uniform height for all images */
+  height: 400px;  /* Increased height for consistency */
+  width: 100%; /* Ensures images are responsive and fill container */
   object-fit: cover; /* Ensures images maintain aspect ratio and are not distorted */
-  width: 90%; /* Ensures images are responsive */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 20px;
 }
 
 .services-image img:hover {
@@ -454,4 +456,21 @@ body::before {
   100% {
       left: 100%;
   }
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #ede7e7;
+  font-size: 0.99rem;
+}
+
+.location-icon {
+  flex-shrink: 0;
+}
+
+.location-text {
+  line-height: 1.2;
 }

@@ -1,19 +1,17 @@
 "use client"
-import { Geist, Geist_Mono } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
+import { AppDataProvider } from "../../context/ContactInfoContext";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 // export const metadata = {
 //   title: "Ideal Interior",
@@ -26,12 +24,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${raleway.variable} antialiased`}
       >
     <QueryClientProvider client={queryClient}>
+      <AppDataProvider>
         {children}
+        </AppDataProvider>
     </QueryClientProvider>
       </body>
     </html>
   );
 }
+

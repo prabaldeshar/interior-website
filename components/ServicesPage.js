@@ -4,14 +4,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 import ServiceSection from "./ServiceSection";
 import PageHeader from "./PageHeader";
+import { useQuery } from "@tanstack/react-query";
+import { BASE_URL } from "../constants/constants";
+import { useAppData } from "../context/ContactInfoContext";
 
-export default function ServicesPage() {
-  // Initialize Bootstrap JavaScript on component mount
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
+const fetchServices = async () => {
+  const response = await fetch(`${BASE_URL}/services/`);
+  if (!response.ok) throw new Error("Failed to fetch services");
+  const json = await response.json();
 
-  const sections = [
+  if (!json.services || !Array.isArray(json.services)) {
+    throw new Error("Invalid response from server");
+  }
+
+  return json.services;
+};
+
+const DEFAULT_SERVICES = [
     {
       heading: "Architectural Design and Detailing",
       description: `Our architectural design services blend creativity with precision, offering solutions tailored to your unique requirements. 
@@ -89,6 +98,19 @@ export default function ServicesPage() {
     
   ];
 
+export default function ServicesPage() {
+ const { services: allServices, isLoading: isAppDataLoading, isError  } = useAppData();
+
+  
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
+  if (isAppDataLoading) return <p>Loading services...</p>;
+  if (isError) return <p>Failed to load services</p>;
+  if (!allServices.length) return <p>No services found</p>;
+  
+
   return (
     
     <main className="container-fluid p-0">
@@ -96,7 +118,7 @@ export default function ServicesPage() {
         title="Our Services"
         image="https://ideal-interior-nepal.s3.ap-south-1.amazonaws.com/sample-project/WhatsApp+Image+2025-01-20+at+7.33.16+PM.jpeg"
       />
-      {sections.map((section, index) => (
+      {allServices.map((section, index) => (
         <ServiceSection key={index} {...section} />
       ))}
     </main>
