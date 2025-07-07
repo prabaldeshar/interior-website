@@ -57,7 +57,7 @@ const ContactUs = () => {
       try {
         console.log("Sending request to API new")
         console.log(JSON.stringify({ ...formData, recaptchaValue }))
-        const post_url = `${BASE_URL}/contact/user/`
+        const post_url = `${BASE_URL}/api/contact/user/`
         console.log("post_url", post_url)
         const response = await fetch(post_url, {
           method: "POST",
