@@ -7,7 +7,7 @@ import { useAppData } from "../context/ContactInfoContext";
 // import Image from "next/image"
 
 const fetchAboutUs = async () => {
-  const res = await fetch(`${BASE_URL}/about-us/`);
+  const res = await fetch(`${BASE_URL}/api/about-us/`);
   if (!res.ok) throw new Error("Failed to fetch About Us data");
   return res.json();
 };

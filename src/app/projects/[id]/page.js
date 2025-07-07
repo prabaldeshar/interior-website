@@ -42,7 +42,7 @@ const Details = async ({ params }) => {
   const project_id = params_data.id
   try {
 
-    const response = await fetch(`${BASE_URL}/project/images/${project_id}`, { cache: "no-store" })
+    const response = await fetch(`${BASE_URL}/api/project/images/${project_id}`, { cache: "no-store" })
     if (!response.ok) {
       throw new Error('Failed to fetch images')
     }
