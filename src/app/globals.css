@@ -228,11 +228,16 @@ body {
 }
 
 .services-image {
-  height: 400px;  /* Increased height for consistency */
-  width: 100%; /* Ensures images are responsive and fill container */
-  object-fit: cover; /* Ensures images maintain aspect ratio and are not distorted */
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  width: 100%;
+  max-width: 600px;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 .services-image img:hover {
