@@ -9,7 +9,7 @@ import { BASE_URL } from "../constants/constants";
 import { useAppData } from "../context/ContactInfoContext";
 
 const fetchServices = async () => {
-  const response = await fetch(`${BASE_URL}/services/`);
+  const response = await fetch(`${BASE_URL}/api/services/`);
   if (!response.ok) throw new Error("Failed to fetch services");
   const json = await response.json();
 

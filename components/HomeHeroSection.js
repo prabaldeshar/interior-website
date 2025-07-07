@@ -12,7 +12,7 @@ const DEFAULT_SLIDES = [
 ];
 
 const fetchSlides = async () => {
-  const response = await fetch(`${BASE_URL}/homepage-slides/`);
+  const response = await fetch(`${BASE_URL}/api/homepage-slides/`);
   if (!response.ok) throw new Error("Failed to fetch slides");
   const json = await response.json();
   return json.image_details || DEFAULT_SLIDES;

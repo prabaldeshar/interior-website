@@ -7,19 +7,19 @@ import { BASE_URL } from "../constants/constants";
 const AppDataContext  = createContext();
 
 const fetchContactInfo = async () => {
-  const res = await fetch(`${BASE_URL}/contact-info/`);
+  const res = await fetch(`${BASE_URL}/api/contact-info/`);
   if (!res.ok) throw new Error("Failed to fetch contact info");
   return res.json();
 };
 
 const fetchHomepageImages = async () => {
-  const res = await fetch(`${BASE_URL}/homepage-images/`);
+  const res = await fetch(`${BASE_URL}/api/homepage-images/`);
   if (!res.ok) throw new Error("Failed to fetch homepage images");
   return res.json();
 };
 
 const fetchServices = async () => {
-  const response = await fetch(`${BASE_URL}/services/`);
+  const response = await fetch(`${BASE_URL}/api/services/`);
   if (!response.ok) throw new Error("Failed to fetch services");
   const json = await response.json();
 

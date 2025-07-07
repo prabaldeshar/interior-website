@@ -38,7 +38,7 @@ const SAMPLE_PROJECTS = [
     ]
 
 const fetchProjects = async () => {
-    const response = await fetch(`${BASE_URL}/project/list/`);
+    const response = await fetch(`${BASE_URL}/api/project/list/`);
     if (!response.ok) throw new Error("Failed to fetch slides");
     const json = await response.json();
     return json.projects;
