@@ -190,7 +190,7 @@ const ContactUs = () => {
               </div>
               <div className="mb-3">
               <ReCAPTCHA
-                sitekey="6Lf759AqAAAAAIBzMeNvAYid1OrheP-j7G0jsbLF"
+                sitekey="6Leu13orAAAAANsbh-DGSPgnllo-_m2gH0g8J_8T"
                 onChange={handleRecaptchaChange}
               />
 
