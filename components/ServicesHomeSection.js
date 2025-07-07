@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useAppData } from "../context/ContactInfoContext";
+import Loader from "./Loader";
 
 export default function ServicesSection() {
   const { homepageImages, services: allServices, isLoading: isAppDataLoading  } = useAppData();
@@ -31,7 +32,12 @@ export default function ServicesSection() {
     }
   ]
 
-  if (isAppDataLoading) return <p className="text-center py-5">Loading...</p>;
+
+// ... (imports)
+
+// ... (component code)
+
+if (isAppDataLoading) return <Loader />;
   console.log({allServices})
 
   return (

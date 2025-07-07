@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../constants/constants";
 import { useAppData } from "../context/ContactInfoContext";
+import Loader from "./Loader";
 
 // import Image from "next/image"
 
@@ -50,7 +51,12 @@ export default function AboutUs() {
 
   const { homepageImages, isLoading: isAppDataLoading } = useAppData();
   
-  if (isLoading || isAppDataLoading) return <p className="text-center py-5">Loading...</p>;
+
+// ... (imports)
+
+// ... (component code)
+
+if (isLoading || isAppDataLoading) return <Loader />;
   if (isError || !about) return <p className="text-center text-danger py-5">Failed to load content</p>;
   return (
     <section className="container py-5">

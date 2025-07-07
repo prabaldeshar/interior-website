@@ -7,6 +7,7 @@ import PageHeader from "./PageHeader";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../constants/constants";
 import { useAppData } from "../context/ContactInfoContext";
+import Loader from "./Loader";
 
 const fetchServices = async () => {
   const response = await fetch(`${BASE_URL}/api/services/`);
@@ -106,7 +107,12 @@ export default function ServicesPage() {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
 
-  if (isAppDataLoading) return <p>Loading services...</p>;
+
+// ... (imports)
+
+// ... (component code)
+
+  if (isAppDataLoading) return <Loader />;
   if (isError) return <p>Failed to load services</p>;
   if (!allServices.length) return <p>No services found</p>;
   
