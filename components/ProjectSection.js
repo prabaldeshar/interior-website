@@ -2,10 +2,16 @@
 
 import Link from "next/link"
 import { useAppData } from "../context/ContactInfoContext";
+import Loader from "./Loader";
 
 export default function ProjectSection() {
   const { homepageImages, isLoading: isAppDataLoading } = useAppData();
-  if (isAppDataLoading) return <p className="text-center py-5">Loading...</p>;
+
+// ... (imports)
+
+// ... (component code)
+
+if (isAppDataLoading) return <Loader />;
   return (
     <div className="container pb-2 bg-white">
       <div className="row g-4 align-items-center">

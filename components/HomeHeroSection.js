@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "./Loader";
 import { useQuery } from "@tanstack/react-query";
 import HomeCarouselImage from "./HomeCaroselImage";
 import { BASE_URL } from "../constants/constants";
@@ -46,7 +47,12 @@ export default function HomeHeroSection() {
     return () => clearInterval(interval)
   }, [handleNext])
   
-  if (isLoading) return <p className="text-center py-5">Loading slides...</p>;
+
+// ... (imports)
+
+// ... (component code)
+
+if (isLoading) return <Loader />;
   if (isError) return <p>Error loading slides. Showing default images.</p>;
 
   return (

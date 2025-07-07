@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useAppData } from '../context/ContactInfoContext';
+import Loader from './Loader';
 
 const QuickLinks = () => {
   return (
@@ -34,7 +35,7 @@ const QuickLinks = () => {
 
 const Footer = () => {
   const { contactInfo, isLoading, isError } = useAppData();
-  if (isLoading) return null; // or a spinner/loading message
+  if (isLoading) return <Loader />;
   if (isError || !contactInfo) return <p>Contact info not available.</p>;
   
   return (
