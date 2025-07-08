@@ -1,6 +1,5 @@
 "use client";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 import ServiceSection from "./ServiceSection";
 import PageHeader from "./PageHeader";

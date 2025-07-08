@@ -18,7 +18,7 @@ const AboutUsCard = ({title, description}) => {
   return (
     <div className="col-sm-6">
         <div className="position-relative mb-4">
-          <h3 className="fw-bold mb-2" style={{ color: "#0a0a0a", fontFamily:  "'Poppins', sans-serif", fontSize: "1.4rem" }}>
+          <h3 className="fw-bold mb-2" style={{ color: "#0a0a0a", fontSize: "1.4rem" }}>
           {title}
           </h3>
           <div
@@ -29,7 +29,6 @@ const AboutUsCard = ({title, description}) => {
               width: "60px",
               height: "3px",
               backgroundColor: "#ffd700",
-              fontFamily:  "'Poppins', sans-serif",
             }}
           ></div>
         </div>
