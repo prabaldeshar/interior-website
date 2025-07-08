@@ -5,13 +5,15 @@ export default function ServiceSection({ heading, description, image, reverse })
         <img
           src={image.src}
           alt={image.alt}
-          className="img-fluid card-img services-image"
+          className="img-fluid card-img services-image rounded-5"
         />
       </div>
       <div className="col-lg-6 p-5">
         <div className="max-w-xl mx-auto">
           <h2 className="display-5 mb-4 text-dark">{heading}</h2>
-          <p className="lead mb-4" style={{ color: "#515151"}}>{description}</p>
+          <p className="text-muted" style={{ fontFamily: 'Lora, serif', fontSize: '1.3rem' }}>
+            {description}
+          </p>
 
         </div>
       </div>

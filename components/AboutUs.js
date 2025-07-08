@@ -32,7 +32,7 @@ const AboutUsCard = ({title, description}) => {
             }}
           ></div>
         </div>
-        <p className="text-secondary" style={{ fontSize: "1.2rem", color: "#515151" }}>{description}</p>
+        <p className="text-secondary" style={{ fontSize: "1.2rem", color: "#515151", fontFamily: 'Lora, serif' }}>{description}</p>
       </div>
   )
 }
@@ -66,7 +66,7 @@ if (isLoading || isAppDataLoading) return <Loader />;
             <h2 className="display-5 fw-bold mb-4" style={{ color: "#0a0a0a"}}>
               {about.heading}
             </h2>
-            <p className="mb-5" style={{ fontSize: "1.2rem", color: "#515151" }}>
+            <p className="mb-5" style={{ fontSize: "1.2rem", color: "#515151", fontFamily: 'Lora, serif', fontSize: '1.3rem'}}>
             {about.description}
             </p>
 
