@@ -1,5 +1,3 @@
-"use client";
-
 export default function ServiceSection({ heading, description, image, reverse }) {
   return (
     <section className={`row align-items-center g-0 ${reverse ? "flex-row-reverse" : ""} bg-secondary bg-opacity-10`}>

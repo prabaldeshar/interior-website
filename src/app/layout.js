@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Raleway } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "../../components/ClientLayout";
 
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "fallback",
@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={raleway.variable}>
+    <html lang="en" className={playfairDisplay.variable}>
       <head>
         {/* Font Awesome for any <i> icons used in components */}
         <link

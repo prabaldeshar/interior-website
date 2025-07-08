@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-raleway)", "sans-serif"],
+        sans: ["var(--font-playfair-display)", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
