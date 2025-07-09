@@ -15,7 +15,7 @@ const NavLink = ({ href, children }) => {
         className={`nav-link px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
           isActive ? "fw-bold active text-light font-bold" : "text-light hover:bg-light/10 hover:text-primary"
         }`}
-        style={{ fontSize: "1rem" }}
+        style={{ fontSize: "1.05rem" }}
       >
         {children}
       </Link>
