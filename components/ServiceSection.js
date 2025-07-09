@@ -5,7 +5,7 @@ export default function ServiceSection({ heading, description, image, reverse })
         <img
           src={image.src}
           alt={image.alt}
-          className="img-fluid card-img services-image rounded-5"
+          className="img-fluid card-img services-image rounded-3"
         />
       </div>
       <div className="col-lg-6 p-5">
